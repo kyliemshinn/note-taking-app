@@ -4,13 +4,14 @@ const data = require('../db/db.json');
 const path = require('path');
 
 //set get request
-apiRouter.get('/api/notes', (req, res) => {
-    fs.readFile(path.join(__dirname + "/db/db.json") () => {
-        res.json(JSON.parse(object))
-    }
-})
-
+apiRouter.get("/notes", (req, res) => {
+    res.send('hello clyde')
+});
 //set post request
-apiRouter.post()
+apiRouter.post('/notes', (req, res) => {
+    res.send('hello farley')
+});
+
+
 
 module.exports = apiRouter;
