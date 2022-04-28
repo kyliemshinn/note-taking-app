@@ -29,8 +29,8 @@ const fs = require("fs");
     updateNotes();
   });
 
-  const updateNotes = (content, newData) => {
-    fs.readFile(newData, 'utf8', (err, data) => {
+  const updateNotes = (newNote, newData) => {
+    fs.readFile(newData, 'utf8', (err, newNote) => {
       if (err) {
         console.error(err);
       } else {
@@ -39,7 +39,16 @@ const fs = require("fs");
         writeToFile(file, parsedData);
       }
     });
-  };
+
+    const response = {
+        status: "success",
+        body: newData,
+      };
+    
+      res.json(response)
+    
+    };
+//   };
   
 // });
 
