@@ -3,7 +3,7 @@ const apiRouter = require("express").Router();
 const newData = require("../db/db.json");
 const path = require("path");
 const fs = require("fs");
-// var uniqid = require("uniqid");
+var uniqid = require("uniqid");
 
 // setup for notes
 // fs.readFile("db/db.json", "utf8", (err, data) => {
@@ -22,7 +22,7 @@ const fs = require("fs");
     const newNote = {
       title,
       text,
-    //   id: uniqid(),
+      id: uniqid(),
     };
 
     newData.push(newNote);
