@@ -27,27 +27,27 @@ var uniqid = require("uniqid");
 
     newData.push(newNote);
     updateNotes();
-  });
-
-  const updateNotes = (newNote, newData) => {
-    fs.readFile(newData, 'utf8', (err, newNote) => {
-      if (err) {
-        console.error(err);
-      } else {
-        const parsedData = JSON.parse(data);
-        parsedData.push(content);
-        writeToFile(file, parsedData);
-      }
-    });
-
-    const response = {
-        status: "success",
-        body: newData,
-      };
     
-      res.json(response)
-    
+    const updateNotes = (newNote, newData) => {
+        fs.readFile(newData, 'utf8', (err, newNote) => {
+            if (err) {
+                console.error(err);
+            } else {
+                const parsedData = JSON.parse(data);
+                parsedData.push(content);
+                writeToFile(file, parsedData);
+            }
+        });
+        
+        const response = {
+            status: "success",
+            body: newData,
+        };
+        
+        res.json(response)
+        
     };
+});
 //   };
   
 // });
