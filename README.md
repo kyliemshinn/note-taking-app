@@ -22,6 +22,14 @@ https://rocky-headland-04115.herokuapp.com/
 
 The note taking app is meant to display daily notes to keep a users thoughts and tasks organized through the day. The user will press the start button to get to the note taking page, where they can generate a new note and append it to the page where it will be saved in the data. If the user would like to delete the note they have the option to do that as well.
 
+To start the note taker app, click the "Get Started" button as shown below.
+
+![homepage](./public/assets/images/homepage-notetaker.PNG)
+
+The image below shows what the app will look like to add a new note or to delete it if the user no longer needs the note reminder.
+
+![notes page](./public/assets/images/notespage.PNG)
+
 ## Criteria
 
 - GIVEN a note-taking application

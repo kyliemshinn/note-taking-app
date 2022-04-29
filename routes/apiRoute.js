@@ -5,20 +5,18 @@ const path = require("path");
 const fs = require("fs");
 var uniqid = require("uniqid");
 
-// setup for notes
-// fs.readFile("db/db.json", "utf8", (err, data) => {
-//   if (err) throw err;
 
   //set get request
   apiRouter.get("/notes", (req, res) => {
     res.json(newData);
   });
+
   //set post request
   apiRouter.post("/notes", (req, res) => {
     res.send("send some data");
-
+    //create new object this is equal to the body
     const { title, text } = req.body;
-
+    //new note body
     const newNote = {
       title,
       text,
@@ -33,9 +31,10 @@ var uniqid = require("uniqid");
             if (err) {
                 console.error(err);
             } else {
-                const parsedData = JSON.parse(data);
-                parsedData.push(content);
-                writeToFile(file, parsedData);
+                // const parsedData = JSON.parse(data);
+                // parsedData.push(newNote);
+
+                fs.writeFileSync('../db/db/json', JSON.stringify(newNote));
             }
         });
         
@@ -47,18 +46,20 @@ var uniqid = require("uniqid");
         res.json(response)
         
     };
-});
-//   };
-  
-// });
 
-// function updateNotes() {
-//   fs.writeFile("db/db.json", JSON.stringify(data), (err) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       return true;
-//     }
-//   });
-// }
+//     const readFromFile = util.promisify(fs.readFile);
+// /**
+//  *  Function to write data to the JSON file given a destination and some content
+//  *  @param {string} destination The file you want to write to.
+//  *  @param {object} content The content you want to write to the file.
+//  *  @returns {void} Nothing
+//  */
+// const writeToFile = (destination, content) =>
+//   fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
+//     err ? console.error(err) : console.info(`\nData written to ${destination}`)
+//   );
+
+  readFromFile();
+});
+
 module.exports = apiRouter;
