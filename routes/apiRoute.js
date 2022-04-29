@@ -23,11 +23,7 @@ apiRouter.post("/notes", (req, res) => {
 
   newData.push(newNote);
 
-  // fs.readFile(newData, 'utf8', (err, data) => {
-  //   if (err) {
-  //       console.error(err);
-  //     }
-  //   });
+
 
   // const dataStr = JSON.stringify(newNote);
 
@@ -68,16 +64,18 @@ apiRouter.post("/notes", (req, res) => {
 
 });
 
-function updateNotes() {
+const updateNotes = ()=> {
   fs.writeFile("db/db.json", JSON.stringify(newData), function (err) {
       if (err) {
           console.log("error")
           return console.log(err);
       }
 
-      console.log("Success!");
+      console.log("New note has been added");
   });
 }
+
+
 
 //delete addd :id
 
